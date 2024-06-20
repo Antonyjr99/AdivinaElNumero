@@ -1,37 +1,16 @@
-/*alert('¡Bienvenida y bienvenido a nuestro sitio web!')
-let Nombre=  prompt('Nombre de Usuario');
-let Edad = prompt('Ingrese su edad');
-let numeroVentas = 50;
-let saldoDeDisponible =1000;
-alert('¡Error! Completa todos los campos');
-let mensajeDeError = "¡Error! Completa todos los campos";
-alert(mensajeDeError);
-console.log(Edad);
-if (Edad>=18){
-    alert("¡Puedes obtener tu licencia de conducir!");
-}*/
+//1
+console.log('Bienvenidos')
+//2
+let nombre= Antony 
+console.log(`¡Hola, ${nombre}`)
+//3
+alert(`¡Hola, ${nombre}`)
+//4
+let gustoLegunaje= prompt('¿Cuál es el lenguaje de programación que más te gusta?')
+console.log(gustoLegunaje)
+//5
+let valor1= 1;
+let valor2= 2;
+let resultado= valor1+ valor2;
 
-/*
-Ejercicio 1
-let dia = prompt('Que dia de la Semana es')
-if (dia == 'Sabado' || dia=='Domingo'){
-    alert("¡Buen fin de semana!")
-}else 
-    alert('¡Buena semana!')
-*/
-/*
-//Ejercicio 2
-let numero = prompt('Ingresa un numero')
-if (numero > 0){
-    alert("El numero es positivo")
-} else if  (numero < 0) {
-    alert('¡El numero es negativo!')
-}else
-alert('El numero es 0 ')*/
-
-let puntuacion = 105;
-if (puntuacion >= 100) {
-    console.log('¡Enhorabuena, has ganado!');
-} else {
-    console.log('Inténtalo de nuevo para ganar.');
-}
+console.log(`la suma de ${valor1} y ${valor2} es igual a : ${resultado}`)

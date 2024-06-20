@@ -1,23 +1,33 @@
 //alert('Hola mundo');
 //let mensajeDeBienvenida = 'Bienvenido a la aplicación';
 //Variables
-let numeroSecreto = 3;
+let numeroInicial = parseInt(prompt("Ingrese el numero inicial del rango a adivinar"));
+let numeroFinal = parseInt(prompt("Ingrese el numero final del rango a adivinar"));
+let numeroSecreto = Math.floor(Math.random()*(numeroFinal-numeroInicial)+numeroInicial)+1;
+
 let numeroDeUsuario = 0;
 let intentos= 1;
-let palabraVeces = 'vez';
+//let palabraVeces = 'vez';
+let maximosIntentos =3;
 
 while (numeroDeUsuario!=numeroSecreto){
-    console.log(numeroDeUsuario);
+    console.log(numeroSecreto);
     
-    numeroDeUsuario = prompt("Me indicas un numero entre 1 y 10 por favor: ")
+    numeroDeUsuario = parseInt(prompt(`Me indicas un numero entre ${numeroInicial} y ${numeroFinal} por favor: `));
     if (numeroDeUsuario==numeroSecreto){
-        alert('Acertaste el número el numero secreto es : ' + numeroSecreto + `,Lo hiciste en ${intentos} ${palabraVeces} `);
+        alert('Acertaste el número el numero secreto es : ' + numeroSecreto + `,Lo hiciste en ${intentos} ${intentos == 1 ? 'vez':'veces'} `);
     } else {
         if (numeroDeUsuario > numeroSecreto){
             alert('El numero secreto es menor')
         }else
         alert('El numero secreto es Mayor')
     }
-    intentos= intentos + 1
-    palabraVeces = 'veces';
+    //intentos= intentos + 1
+    //intentos += 1;
+    intentos++;
+    //palabraVeces = 'veces';
+    if (intentos > maximosIntentos){
+        alert(`Llegaste al numero maximo de ${maximosIntentos} intentos`);
+        break;
+    }
 }
