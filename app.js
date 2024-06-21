@@ -2,6 +2,7 @@ let numeroSecreto = 0;
 let intentos = 0;
 let listasNumerosSorteados= [];
 let numeroMaximo= 10;
+let intentosRestantes=3;
 
 function asignarTextoElemento(elemento, texto){
     let elementoHTML = document.querySelector(elemento);
@@ -11,19 +12,28 @@ function asignarTextoElemento(elemento, texto){
 
 function verificarIntento(){
     let numeroDeUsuario = parseInt(document.getElementById('valorUsuario').value);
-
+    let res=intentosRestantes-intentos;
     //console.log(intentos);
-    if(numeroDeUsuario===numeroSecreto){
-        asignarTextoElemento('p',`Acertaste el número en ${intentos} ${(intentos===1) ? 'vez':'veces'}`);
+    if (intentos===3){
+        
+        asignarTextoElemento('p',`Se terminaron tus intentos`)
         document.getElementById('reiniciar').removeAttribute('disabled');
-    }else {
-        if(numeroDeUsuario>numeroSecreto){
-            asignarTextoElemento('p','El número secreto es menor')
-        }else{
-            asignarTextoElemento('p','El número secreto es mayor')
+            document.querySelector('#intento').setAttribute('disabled','true');
+        }else {
+        if(numeroDeUsuario===numeroSecreto){
+            asignarTextoElemento('p',`Acertaste el número secreto en ${intentos} ${(intentos===1) ? 'intento':'intentos'}`);
+            document.getElementById('reiniciar').removeAttribute('disabled');
+            document.querySelector('#intento').setAttribute('disabled','true');
+        }else {
+            if(numeroDeUsuario>numeroSecreto){
+                asignarTextoElemento('p',`El número secreto es menor - ${res} intentos restantes `)
+            }else{
+                asignarTextoElemento('p',`El número secreto es mayor - ${res} intentos restantes `)
+            }
+        
+            intentos++;
+            limpiarCaja();
         }
-        intentos++;
-        limpiarCaja();
     }
     return;
 }
@@ -55,6 +65,7 @@ function CondicionesIniciales(){
     numeroSecreto= generarNumeroSecreto();
     intentos = 1;
     console.log(numeroSecreto);
+    document.getElementById('intento').removeAttribute('disabled');
 }
 function reiniciarJuego(){
     //limpiar caja
